@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+    <world name="default">
+        <physics type="ode">
+        </physics>
+        <!--
+        <physics type="opensim">
+          <max_step_size>0.01</max_step_size>
+          <opensim>
+            <integrator>rk_merson</integrator>
+            <accuracy>1.e-2</accuracy>
+          </opensim>
+        </physics>
+        -->
+
+ <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+
+        <light name='sun' type='directional'>
+            <cast_shadows>1</cast_shadows>
+            <pose>-11.82075 -19.38429 17.2198 0 -0 0</pose>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.2 0.2 0.2 1</specular>
+            <attenuation>
+                <range>1000</range>
+                <constant>0.9</constant>
+                <linear>0.01</linear>
+                <quadratic>0.001</quadratic>
+            </attenuation>
+            <direction>0.3698 0.4 -0.5</direction>
+        </light>
+
+    </world>
+</sdf>

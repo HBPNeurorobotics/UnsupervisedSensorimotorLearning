@@ -1,0 +1,128 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+	<model name="2019-05-09Bert">
+		<pose>0.0 0.0 0.13606448471546173 1.5707963705062866 -0.0 0.0</pose>
+		<link name="RigidGroup8">
+			<pose>-0.019999999553 0.0 0.0125000001863 0.0 -0.0 -0.017453290522098538</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+			</inertial>
+			<collision name="COL_RigidGroup8_collision">
+				<pose>0.01999695599079132 0.0003489553928375244 -0.012500000186264515 -9.920884114222872e-10 1.4551845839427813e-11 0.01745329238474369</pose>
+				<geometry>
+					<mesh>
+						<uri>model://2019-05-09Bert/meshes/collisions/COL_RigidGroup8_collision.dae</uri>
+						<scale>0.0010000000474974513 0.0010000000474974513 0.0010000000474974513</scale>
+					</mesh>
+				</geometry>
+			</collision>
+			<visual name="VIS_RigidGroup8_visual">
+				<pose>0.01999695599079132 0.0003489553928375244 -0.012500000186264515 -9.920884114222872e-10 1.4551845839427813e-11 0.01745329238474369</pose>
+				<geometry>
+					<mesh>
+						<uri>model://2019-05-09Bert/meshes/visual/VIS_RigidGroup8_visual.dae</uri>
+						<scale>0.0010000001639127731 0.0010000000474974513 0.0010000000474974513</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="RigidGroup6">
+			<pose>-0.019999999553 0.0 0.0125000001863 0.0 -0.0 2.4260076507925987</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+			</inertial>
+			<collision name="COL_RigidGroup6_collision">
+				<pose>4.705399987869896e-06 -5.6006747399806045e-06 -1.0031984132297112e-09 -1.3460327963343843e-08 1.054284304302655e-08 -2.4434611797332764</pose>
+				<geometry>
+					<mesh>
+						<uri>model://2019-05-09Bert/meshes/collisions/COL_RigidGroup6_collision.dae</uri>
+						<scale>0.0010000000474974513 0.0009999999310821295 0.0010000000474974513</scale>
+					</mesh>
+				</geometry>
+			</collision>
+			<visual name="VIS_RigidGroup6_visual">
+				<pose>4.705399987869896e-06 -5.6006747399806045e-06 -1.0031984132297112e-09 -1.3460327963343843e-08 1.054284304302655e-08 -2.4434611797332764</pose>
+				<geometry>
+					<mesh>
+						<uri>model://2019-05-09Bert/meshes/visual/VIS_RigidGroup6_visual.dae</uri>
+						<scale>0.0010000000474974513 0.0009999999310821295 0.0010000000474974513</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<link name="RigidGroup7">
+			<pose>-0.0724847212715 -0.0603767645708 0.0125000001863 0.0 -0.0 -2.4609142954098147</pose>
+			<inertial>
+				<mass>1.0</mass>
+				<pose>0 0 0 0 0 0</pose>
+				<inertia>
+					<ixx>1.0</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>1.0</iyy>
+					<iyz>0.0</iyz>
+					<izz>1.0</izz>
+				</inertia>
+			</inertial>
+			<collision name="COL_RigidGroup7_collision">
+				<pose>-4.898909367057058e-08 4.05635137212812e-06 -1.8410344360120234e-09 -1.6302406535828595e-08 7.631084031345381e-08 2.4434609413146973</pose>
+				<geometry>
+					<mesh>
+						<uri>model://2019-05-09Bert/meshes/collisions/COL_RigidGroup7_collision.dae</uri>
+						<scale>0.0010000003967434168 0.0010000003967434168 0.0010000000474974513</scale>
+					</mesh>
+				</geometry>
+			</collision>
+			<visual name="VIS_RigidGroup7_visual">
+				<pose>-4.898909367057058e-08 4.05635137212812e-06 -1.8410344360120234e-09 -1.6302406535828595e-08 7.631084031345381e-08 2.4434609413146973</pose>
+				<geometry>
+					<mesh>
+						<uri>model://2019-05-09Bert/meshes/visual/VIS_RigidGroup7_visual.dae</uri>
+						<scale>0.0010000003967434168 0.0010000003967434168 0.0010000000474974513</scale>
+					</mesh>
+				</geometry>
+			</visual>
+		</link>
+		<joint name="RigidGroup6" type="revolute">
+			<parent>RigidGroup8</parent>
+			<child>RigidGroup6</child>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<limit>
+					<lower>-1.5707963267948966</lower>
+					<upper>1.5707963267948966</upper>
+				</limit>
+			</axis>
+		</joint>
+		<joint name="RigidGroup7" type="revolute">
+			<parent>RigidGroup6</parent>
+            <child>RigidGroup7</child>
+            <origin rpy="0.0 0.0 0.6"/>
+			<axis>
+				<xyz>0.0 0.0 1.0</xyz>
+				<limit>
+					<lower>-1.5707963267948966</lower>
+					<upper>1.5707963267948966</upper>
+				</limit>
+			</axis>
+		</joint>
+	</model>
+</sdf>

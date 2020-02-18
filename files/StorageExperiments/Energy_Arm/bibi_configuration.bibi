@@ -1,0 +1,14 @@
+<bibi 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns="http://schemas.humanbrainproject.eu/SP10/2014/BIBI" xsi:schemaLocation="http://schemas.humanbrainproject.eu/SP10/2014/BIBI ../bibi_configuration.xsd">
+  <brainModel>
+    <file>idle_brain.py</file>
+    <populations population="refl_neurons" from="0" step="1" to="100" xsi:type="Range" />
+    <populations population="raphe_j1" from="100" step="1" to="200" xsi:type="Range" />
+    <populations population="raphe_j2" from="200" step="1" to="300" xsi:type="Range" />
+  </brainModel>
+  <bodyModel robotId="myoarm">myoarm_nst/model.sdf</bodyModel>
+  <transferFunction src="set_weight.py" xsi:type="PythonTransferFunction" />
+  <transferFunction src="set_record_time.py" xsi:type="PythonTransferFunction" />
+  <transferFunction src="Reflex_Controller.py" xsi:type="PythonTransferFunction" />
+</bibi>

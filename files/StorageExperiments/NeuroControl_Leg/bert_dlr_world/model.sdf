@@ -1,0 +1,292 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+	<model name="BertModel_new">
+		<pose>0.0 0.8 0.2 1.5707963705062866 -0.0 0.0</pose>
+        <link name="base_link">
+			<pose>-0.019999999553 0.0 0.0125000001863 0.0 -0.0 -0.0</pose>
+			<inertial>
+                <mass>0.452</mass> <!-- 0.49 minus help link(0.038) -->
+				<pose>0.0 0.05 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.0004</ixx>
+					<ixy>0.0000</ixy>
+					<ixz>0.0000</ixz>
+					<iyy>0.0001</iyy>
+					<iyz>0.0000</iyz>
+					<izz>0.0005</izz>
+				</inertia>
+			</inertial>
+			<collision name="COL_Cube">
+                <pose>0.01999695599079132 0.0003489553928375244 -0.012500000186264515 -9.920884114222872e-10 1.4551845839427813e-11 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://BertModel_new/meshes/collisions/COL_RigidGroup8_collision.dae</uri>
+						<scale>0.0010000000474974513 0.0010000000474974513 0.0010000000474974513</scale>
+					</mesh>
+				</geometry>
+			</collision>
+			<visual name="VIS_Cube">
+                <pose>0.01999695599079132 0.0003489553928375244 -0.012500000186264515 -9.920884114222872e-10 1.4551845839427813e-11 0.0</pose>
+				<geometry>
+					<mesh>
+						<uri>model://BertModel_new/meshes/visual/VIS_RigidGroup8_visual.dae</uri>
+						<scale>0.0010000001639127731 0.0010000000474974513 0.0010000000474974513</scale>
+					</mesh>
+				</geometry>
+            </visual>
+        </link>
+        
+        <link name="help_link">
+            <pose>-0.019999999553 0.05 0.0125000001863 0.0 -0.0 -2.4609142954098147</pose>
+			<inertial>
+				<mass>0.038</mass>
+				<pose>0 0.0 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.00002</ixx>
+					<ixy>0.00</ixy>
+					<ixz>0.00</ixz>
+					<iyy>0.00002</iyy>
+					<iyz>0.00</iyz>
+					<izz>0.0000006</izz>
+				</inertia>
+            </inertial>
+            <visual name="visual1">
+                <geometry>
+                    <cylinder>
+                        <length>0.01</length>
+                        <radius>0.01</radius>
+                    </cylinder>
+                </geometry>
+                <material>
+                    <script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script>
+                </material>
+            </visual>
+        </link>
+
+		<link name="link1_link">
+            <pose>-0.019999999553 0.0 0.0125000001863 0.0 -0.0 2.4260076507925987</pose>
+			<inertial>
+				<mass>0.059</mass>
+                <pose>0 0.04 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.00003</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>0.000001</iyy>
+					<iyz>0.0</iyz>
+					<izz>0.00003</izz>
+                </inertia>
+			</inertial>
+			<collision name="COL_link1_link">
+                <pose>4.705399987869896e-06 -5.6006747399806045e-06 -1.0031984132297112e-09 -1.3460327963343843e-08 1.054284304302655e-08 -2.4434611797332764</pose>
+				<geometry>
+					<mesh>
+						<uri>model://BertModel_new/meshes/collisions/COL_RigidGroup6_collision.dae</uri>
+						<scale>0.0010000000474974513 0.0009999999310821295 0.0010000000474974513</scale>
+					</mesh>
+				</geometry>
+			</collision>
+			<visual name="VIS_link1_link">
+				<pose>4.705399987869896e-06 -5.6006747399806045e-06 -1.0031984132297112e-09 -1.3460327963343843e-08 1.054284304302655e-08 -2.4434611797332764</pose>
+				<geometry>
+					<mesh>
+						<uri>model://BertModel_new/meshes/visual/VIS_RigidGroup6_visual.dae</uri>
+						<scale>0.0010000000474974513 0.0009999999310821295 0.0010000000474974513</scale>
+					</mesh>
+				</geometry>
+			</visual>
+        </link>
+		<link name="link2_link">
+            <pose>-0.0724847212715 -0.0603767645708 0.0125000001863 0.0 -0.0 -2.4609142954098147</pose>
+			<inertial>
+				<mass>0.038</mass>
+                <pose>0 0.04 0 0 0 0</pose>
+				<inertia>
+					<ixx>0.00002</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>0.0000006</iyy>
+					<iyz>0.0</iyz>
+					<izz>0.00002</izz>
+                </inertia>
+            </inertial>
+			<collision name="COL_link2_link">
+				<pose>-4.898909367057058e-08 4.05635137212812e-06 -1.8410344360120234e-09 -1.6302406535828595e-08 7.631084031345381e-08 2.4434609413146973</pose>
+				<geometry>
+					<mesh>
+						<uri>model://BertModel_new/meshes/collisions/COL_RigidGroup7_collision.dae</uri>
+						<scale>0.0010000003967434168 0.0010000003967434168 0.0010000000474974513</scale>
+					</mesh>
+                </geometry>
+                <surface>
+                    <friction>
+                        <ode>
+                            <mu>1.0</mu>
+                            <mu2>1.0</mu2>
+                            <fdir1>1 0 0</fdir1>
+                            <minDepth>0.003</minDepth>
+                        </ode>
+                    </friction>
+                    <contact>
+                        <collide_without_contact>0</collide_without_contact>
+                        <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+                        <collide_bitmask>1</collide_bitmask>
+                        <ode>
+                          <soft_cfm>0</soft_cfm>
+                          <soft_erp>0.2</soft_erp>
+                          <kp>1e+5</kp>
+                          <kd>1e+12</kd>
+                          <max_vel>10</max_vel>
+                          <min_depth>0</min_depth>
+                        </ode>
+                    </contact>
+                </surface>
+            </collision>
+			<visual name="VIS_link2_link">
+				<pose>-4.898909367057058e-08 4.05635137212812e-06 -1.8410344360120234e-09 -1.6302406535828595e-08 7.631084031345381e-08 2.4434609413146973</pose>
+				<geometry>
+					<mesh>
+						<uri>model://BertModel_new/meshes/visual/VIS_RigidGroup7_visual.dae</uri>
+						<scale>0.0010000003967434168 0.0010000003967434168 0.0010000000474974513</scale>
+					</mesh>
+				</geometry>
+            </visual>
+            <sensor type="contact" name="your_link_contact_sensor">
+                <update_rate>1000.0</update_rate>
+                <always_on>1</always_on>
+                <contact>
+                    <collision>COL_link2_link</collision>
+                </contact>
+                <plugin name="gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+                    <alwaysOn>true</alwaysOn>
+                    <updateRate>1000.0</updateRate>
+                    <bumperTopicName>/robot_bumper</bumperTopicName>
+                    <frameName>world</frameName>
+                </plugin>
+            </sensor>
+        </link>
+        
+
+		<joint name="link1" type="revolute">
+			<parent>base_link</parent>
+			<child>link1_link</child>
+			<axis>
+                <xyz>0.0 0.0 1.0</xyz>
+                <initial_position>0.5</initial_position>
+                <!--
+                <limit>
+					<lower>-1.57</lower>
+					<upper>1.57</upper>
+                </limit>
+                -->
+				<dynamics>
+					<damping>0.0219</damping>
+					<spring_stiffness>1.46</spring_stiffness>
+                </dynamics>
+			</axis>
+        </joint>
+        
+        <joint name="link2" type="revolute">
+			<parent>link1_link</parent>
+            <child>link2_link</child>
+			<axis>
+                <xyz>0.0 0.0 1.0</xyz>
+                <use_parent_model_frame>0</use_parent_model_frame>
+                <!--
+                <limit>
+					<lower>-1.57</lower>
+					<upper>1.57</upper>
+                </limit>
+                -->
+            </axis>
+        </joint>
+
+		<joint name="gear1" type="gearbox">
+			<parent>help_link</parent>
+            <child>link2_link</child>
+            <gearbox_reference_body>base_link</gearbox_reference_body>
+			<axis>
+                <xyz>0.0 0.0 1.0</xyz>
+            </axis>
+			<axis2>
+                <xyz>0.0 0.0 1.0</xyz>
+            </axis2>
+        </joint>
+
+        <joint name="link3" type="revolute">
+			<parent>base_link</parent>
+			<child>help_link</child>
+			<axis>
+                <xyz>0.0 0.0 1.0</xyz>
+                <!--
+				<limit>
+					<lower>-1.57</lower>
+					<upper>1.57</upper>
+                </limit>
+                -->
+                <dynamics>
+                    <damping>0.0219</damping>
+					<spring_stiffness>1.46</spring_stiffness>
+                </dynamics>
+            </axis>
+        </joint>
+
+
+        <!-- World fixation -->
+		<!-- helper link -->
+		<link name="world1_link">
+			<pose>0.0 0.0 3.5 1.5707963705062866 -0.0 0.0</pose>
+			<inertial>
+				<mass>0.0001</mass>
+				<pose>0.0 -3.5 1.5438634193287726e-07 -1.5707963705062866 -0.0 0.0</pose>
+				<inertia>
+					<ixx>0.01</ixx>
+					<ixy>0.0</ixy>
+					<ixz>0.0</ixz>
+					<iyy>0.01</iyy>
+					<iyz>0.0</iyz>
+					<izz>0.01</izz>
+				</inertia>
+			</inertial>
+		</link>
+
+		<!-- horizontal -->
+		<joint name="world_1" type="prismatic">
+			<parent>world</parent>
+			<child>world1_link</child>
+			<axis>
+				<xyz>1.0 0.0 0.0</xyz>
+				<limit>
+					<lower>-10.0</lower>
+					<upper>10.0</upper>
+				</limit>
+			</axis>
+		</joint>
+
+		<!-- vertical -->
+		<joint name="world_2" type="prismatic">
+			<parent>world1_link</parent>
+			<child>base_link</child>
+			<axis>
+				<xyz>0.0 1.0 0.0</xyz>
+				<limit>
+					<lower>-2.0</lower>
+					<upper>10.0</upper>
+                </limit>
+			</axis>
+        </joint>
+        
+
+        <plugin name='generic_controller' filename='libgeneric_controller_plugin.so'>
+            <updateRate>1000.0</updateRate>
+        </plugin>
+        
+        <plugin name="gazebo_ros_force" filename="libgazebo_ros_force.so">
+            <alwaysOn>true</alwaysOn>
+            <updateRate>1000.0</updateRate>
+            <bodyName>base_link</bodyName>
+            <topicName>force_base</topicName>
+        </plugin>
+
+	</model>
+</sdf>

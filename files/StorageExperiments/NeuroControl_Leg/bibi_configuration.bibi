@@ -1,0 +1,17 @@
+<ns1:bibi 
+  xmlns:ns1="http://schemas.humanbrainproject.eu/SP10/2014/BIBI" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ns1:brainModel>
+    <ns1:file>idle_brain.py</ns1:file>
+    <ns1:populations population="refl_neurons" from="0" step="1" to="100" xsi:type="ns1:Range" />
+    <ns1:populations population="raphe_j1" from="100" step="1" to="200" xsi:type="ns1:Range" />
+    <ns1:populations population="raphe_j2" from="200" step="1" to="300" xsi:type="ns1:Range" />
+  </ns1:brainModel>
+  <ns1:bodyModel assetPath="BertModel_new" customAsset="false">bert_dlr_world/model.sdf</ns1:bodyModel>
+  <ns1:transferFunction src="setMuscles.py" xsi:type="ns1:PythonTransferFunction" />
+  <ns1:transferFunction src="all_neurons_spike_monitor.py" xsi:type="ns1:PythonTransferFunction" />
+  <ns1:transferFunction src="set_weight.py" xsi:type="ns1:PythonTransferFunction" />
+  <ns1:transferFunction src="Reflex_Controller.py" xsi:type="ns1:PythonTransferFunction" />
+  <ns1:transferFunction src="read_pos.py" xsi:type="ns1:PythonTransferFunction" />
+  <ns1:transferFunction src="setNeurons.py" xsi:type="ns1:PythonTransferFunction" />
+</ns1:bibi>

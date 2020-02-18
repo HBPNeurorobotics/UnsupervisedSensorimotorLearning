@@ -1,0 +1,21 @@
+<ExD 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig" xsi:schemaLocation="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig ../ExDConfFile.xsd">
+  <name>NEW NEURO DLR -Legged Elastic Multibody Systems V4 - neuronal controller</name>
+  <thumbnail>dlr.jpg</thumbnail>
+  <description>This experiment loads 2 DOF hopper robot in the NRP Holodeck. The robot is controlled through a human inspired neuronal controller.</description>
+  <tags></tags>
+  <timeout>10000000</timeout>
+  <configuration type="3d-settings" src="dlr.ini" />
+  <configuration type="brainvisualizer" src="dlr.json" />
+  <configuration type="user-interaction-settings" src="dlr.uis" />
+  <maturity>production</maturity>
+  <environmentModel src="dlr_world.sdf">
+    <robotPose x="0.8" y="0.0" z="0.1" roll="0.0" pitch="0.0" yaw="1.57" />
+  </environmentModel>
+  <bibiConf src="bibi_configuration.bibi" />
+  <cameraPose>
+    <cameraPosition x="5.056825994369357" y="-1.0210998541555323" z="2.697598759953974" />
+    <cameraLookAt x="0" y="0" z="0.49999" />
+  </cameraPose>
+</ExD>
