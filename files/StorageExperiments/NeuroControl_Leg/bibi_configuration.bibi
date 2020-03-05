@@ -14,4 +14,5 @@
   <ns1:transferFunction src="Reflex_Controller.py" xsi:type="ns1:PythonTransferFunction" />
   <ns1:transferFunction src="read_pos.py" xsi:type="ns1:PythonTransferFunction" />
   <ns1:transferFunction src="setNeurons.py" xsi:type="ns1:PythonTransferFunction" />
+  <ns1:transferFunction src="neuroControl.py" xsi:type="ns1:PythonTransferFunction" />
 </ns1:bibi>
