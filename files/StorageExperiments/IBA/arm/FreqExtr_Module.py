@@ -27,11 +27,11 @@ class FreqExtr_Module(ExternalModule):
         self.weights = data
 
     def initialize(self):
-        self.weight1_oja = 1.0
-        self.weight_pub = rospy.Publisher("/weights", Vector3, queue_size=1)
-
+        rospy.wait_for_service("gazebo/apply_joint_effort")
+        rospy.wait_for_service("gazebo/clear_joint_forces")
 	self.applyEffortService = None
         self.clearJointService  = None
+
         self.theta1 = 0.0
         self.theta2 = 0.0
 

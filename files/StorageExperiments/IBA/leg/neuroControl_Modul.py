@@ -38,14 +38,51 @@ class NeuroControl_Module(ExternalModule):
                 register_spike_sink(populations, spike_detector_type, **params)
         device.timestep = ts
 
-    def create_brain(self):
+
     ???????????????????????????
 
-    def initialize(self):
-        self.circuit = self.create_brain()
 
+    def create_brain(self):
+        n_refl = 100         # amount of reflex neurons
+        n_raphe = 100        # amount of reaphe neurons per raphe nucleus
+        n_total = n_refl+2*n_raphe
+
+        w = 1.0             # neuron weight
+
+        # neuron and synapse parameter
+        SENSORPARAMS = {'v_rest': -70.0,
+                    'tau_m': 10.0,
+                    'v_thresh': -50.0,
+                    'tau_refrac': 5.0}
+
+        REFL_PARAMS = {'cm': 0.025,
+                    'tau_m': 10.0,
+                    'v_reset': -60.0,
+                    'v_thresh': -55.0}
+
+        RAPHENUCLEI_PARAMS = {'cm': 0.025,
+                    'v_reset': -60.0,
+                    'v_thresh': -55.0}
+
+        SYNAPSE_PARAMS = {'weight': w,
+                      'delay': 0.0,
+                      'U': 1.0,
+                      'tau_rec': 1.0,
+                      'tau_facil': 1.0}
+
+        refl_class = sim.IF_cond_alpha(**SENSORPARAMS)
+        neurons = sim.Population(size=n_total, cellclass=refl_class, label='neurons')
+        sim.initialize(neurons)
+        return neurons
+
+
+    def initialize(self):
+        rospy.wait_for_service("gazebo/apply_joint_effort")
+        rospy.wait_for_service("gazebo/clear_joint_forces")
         self.applyEffortService=None
         self.clearJointService=None
+
+        self.circuit = self.create_brain()
 
         self.weight1_oja = 1.0
         self.weight_pub = rospy.Publisher("/weights", Vector3, queue_size=1)
