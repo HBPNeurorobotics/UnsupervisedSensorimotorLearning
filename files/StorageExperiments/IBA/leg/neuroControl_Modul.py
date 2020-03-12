@@ -84,9 +84,6 @@ class NeuroControl_Module(ExternalModule):
 
         self.circuit = self.create_brain()
 
-        self.weight1_oja = 1.0
-        self.weight_pub = rospy.Publisher("/weights", Vector3, queue_size=1)
-
         self.joint_states = None
         self.joint_state_sub = rospy.Subscriber("/joint_states", JointState, self.jointStateCallback, queue_size=1)
         self.knee_refl  = self.register_spike_source

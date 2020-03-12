@@ -28,7 +28,7 @@ rospy.wait_for_service("gazebo/clear_joint_forces")
 
 @nrp.Robot2Neuron()
 def neuroControl (t, knee_refl, hip_refl, knee_raphe, hip_raphe, joint_states, rate_refl_neurons, rate_raphe_j1, rate_raphe_j2, applyEffortService, clearJointService):
- 
+
     import rospy
     import numpy as np
     import math
@@ -41,12 +41,12 @@ def neuroControl (t, knee_refl, hip_refl, knee_raphe, hip_raphe, joint_states, r
         applyEffortService.value = rospy.ServiceProxy("/gazebo/apply_joint_effort", ApplyJointEffort)
     if clearJointService.value is None:
         clearJointService.value = rospy.ServiceProxy("/gazebo/clear_joint_forces", JointRequest)
-    
+
     def clearJoints():
         clearJointService.value('link1')
         clearJointService.value('link3')
 
-    
+
     ## CONSTANTS
     record_time = 0
     m_sens = 500.0 #295.0 # [Hz/rad] transform weight sensor input [Hz/rad]
@@ -56,7 +56,7 @@ def neuroControl (t, knee_refl, hip_refl, knee_raphe, hip_raphe, joint_states, r
     hip_rad = joint_states.value.position[1]
     knee_rad = -joint_states.value.position[3]
     angles = [hip_rad, knee_rad]
-    
+
     # set rate with which poisson fire [Hz]
     #raphe neurons
     if hip_rad > 0.: #or hip_rad < -0.4:
@@ -67,21 +67,19 @@ def neuroControl (t, knee_refl, hip_refl, knee_raphe, hip_raphe, joint_states, r
         knee_raphe.rate = ser_constant
     else:
         knee_raphe.rate = m_ser*knee_rad
-    
+
     #reflex neurons
     if hip_rad > 0.0:
         hip_refl.rate = 0.0
     else:
         hip_refl.rate = -m_sens*hip_rad
-    
+
     if knee_rad < 0.0:
         knee_refl.rate = 0.0
     else:
         knee_refl.rate = m_sens*knee_rad
-  
+
     ## apply muscles
-    # constants
-    record_time = 0
     # constant to tune muscle force
     m_f = 0.35 # 525 [microN m Hz^(-1)]
     # constant to tune serotonin weight
@@ -120,7 +118,7 @@ def neuroControl (t, knee_refl, hip_refl, knee_raphe, hip_raphe, joint_states, r
         applyEffortService.value('robot::link3', tau2_appl, rospy.Time(), rospy.Duration(-1))
     # if duration < 0 apply continuously
 
-    
+
 
 
 
