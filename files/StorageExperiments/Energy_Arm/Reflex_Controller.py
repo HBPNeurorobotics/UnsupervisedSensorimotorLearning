@@ -21,22 +21,15 @@ rospy.wait_for_service("gazebo/clear_joint_forces")
 
 @nrp.MapRobotSubscriber('link_states', Topic('/gazebo/link_states', LinkStates))
 @nrp.MapRobotSubscriber("joint_states", Topic("/joint_states", JointState))
-@nrp.MapRobotSubscriber("gazebo_time", Topic('/clock', Clock))
 @nrp.MapRobotSubscriber('t_start', Topic('/record_time', Float64))
 @nrp.MapRobotSubscriber('weights', Topic('/weights', Vector3))
 
-@nrp.MapCSVRecorder("recorder_control", filename="Rflx_controller.csv", headers=["g_t","t", "threshold","q1","q2","dq1","dq2","theta1","theta2","tau1","tau2", "z", "tau_z", "theta_z", "phi1", "phi2", "tau_tot1", "tau_tot2", "w1", "w2"])
-
-## can be used to create new topics
-@nrp.MapRobotPublisher("hip", Topic("/angles/q1", Float64))
-@nrp.MapRobotPublisher("knee", Topic("/angles/q2", Float64))
-#@nrp.MapRobotPublisher("th_z", Topic("/CPG_theta_z", Float64))
-
+@nrp.MapCSVRecorder("recorder_control", filename="Rflx_controller.csv", headers=["t", "threshold","q1","q2","dq1","dq2","theta1","theta2","tau1","tau2", "z", "tau_z", "theta_z", "phi1", "phi2", "tau_tot1", "tau_tot2", "w1", "w2"])
 
 #################### Function ###################
 ## This is where the function with its input starts
 @nrp.Robot2Neuron()
-def Reflex_Controller (t, applyEffortService, clearJointService, link_states, recorder_control, joint_states, gazebo_time, theta1, theta2, t_start, weights, hip, knee):
+def Reflex_Controller (t, applyEffortService, clearJointService, link_states, recorder_control, joint_states, gazebo_time, theta1, theta2, t_start, weights):
 
     #################### Initialization ###################
     ## functions you want to use in the function need to be initialized again
@@ -50,13 +43,6 @@ def Reflex_Controller (t, applyEffortService, clearJointService, link_states, re
 
     if link_states.value is None:
         return
-    
-    ## When the time step within gazebo is manually changed during the simulation, the times (NRP and gazebo) do not sync
-    ## therefore the gazebo time can additionally be recorded
-    gazebo_t = gazebo_time.value
-    g_secs = gazebo_t.clock.secs
-    g_nsecs = gazebo_t.clock.nsecs/1000000000.0
-    g_t = g_secs+g_nsecs
 
     if applyEffortService.value is None:
         applyEffortService.value = rospy.ServiceProxy("/gazebo/apply_joint_effort", ApplyJointEffort)
@@ -120,14 +106,14 @@ def Reflex_Controller (t, applyEffortService, clearJointService, link_states, re
         weights_theta = w_default
     else:
         tau_z = weights_tau.dot(tau_tot)/norm(weights_tau)
-   
+
     if tau_z > threshold:
         theta_z = 0.3
     elif -threshold <= tau_z and tau_z <= threshold:
         theta_z = 0.0
     elif tau_z < -threshold:
         theta_z = -0.3
-        
+
     ## go back to 2 dimension
     theta1.value = weights_theta[0]*theta_z/norm(weights_theta)
     theta2.value = weights_theta[1]*theta_z/norm(weights_theta)
